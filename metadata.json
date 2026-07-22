@@ -1,0 +1,6 @@
+{
+  "name": "Morbido Bed",
+  "description": "متجر موربيدو (Morbido) للمراتب والمفروشات والمخدات الفندقية الفاخرة التي توفر لك تجربة نوم ملوكية مريحة وصحية.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

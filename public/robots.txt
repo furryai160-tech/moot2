@@ -1,0 +1,5 @@
+# Robots configuration for Morbido Brand - دمنهور
+User-agent: *
+Allow: /
+
+Sitemap: https://morbido-bed.com/sitemap.xml
