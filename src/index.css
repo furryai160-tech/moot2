@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-primary: #004D95;
+  --color-primary-hover: #0062BD;
+  --color-primary-light: #49B2A4;
+  --color-charcoal: #0F1E2E;
+  --color-muted-gray: #5E7185;
+  --color-border-light: #E2E8F0;
+  --color-status-discount: #E53935;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+/* Custom styles for animations or overrides */
+.product-card:hover .product-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.product-card .product-actions {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #fbfbfb;
+}
+::-webkit-scrollbar-thumb {
+  background: #004D95;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0062BD;
+}
+
+/* ==========================================================
+   PRINTING STYLES (Fixes printing issues across browsers)
+   ========================================================== */
+#morbido-print-portal {
+  display: none;
+}
+
+@media print {
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: static !important;
+  }
+
+  /* Label & Barcode Printing Portal */
+  body.printing-labels-mode > :not(#morbido-print-portal) {
+    display: none !important;
+  }
+
+  body.printing-labels-mode #morbido-print-portal,
+  #morbido-print-portal {
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 99999999 !important;
+  }
+
+  /* Invoice & Document Printing */
+  body.printing-invoice-mode .print\:hidden {
+    display: none !important;
+  }
+
+  body.printing-invoice-mode #printable-invoice {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    padding: 24px !important;
+    margin: 0 !important;
+    z-index: 99999999 !important;
+  }
+
+  /* Fallback print hidden rule */
+  body:not(.printing-labels-mode):not(.printing-invoice-mode) .print\:hidden {
+    display: none !important;
+  }
+}
+
